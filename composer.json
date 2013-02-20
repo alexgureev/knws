@@ -9,7 +9,8 @@
             "role": "Developer"
         }
     ],
-
+    "type": "framework",
+    "keywords": ["framework"],
     "homepage": "http://knws.ru",
 
     "require": {
