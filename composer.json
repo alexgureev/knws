@@ -22,7 +22,8 @@
         }
     ],
     "autoload": {
-            "classmap": ["lib/"]
+        "psr-0" : {
+                   "Knws" : "lib/"
         }
 }
 
