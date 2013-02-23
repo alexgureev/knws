@@ -19,7 +19,8 @@
         "symfony/yaml": "2.3.*@dev",
 	"twig/twig": "1.12.*@dev",
 	"swiftmailer/swiftmailer": "4.3.*@dev",
-        "psr/log": "dev-master"
+        "psr/log": "1.0.*@dev",
+        "monolog/monolog": "1.4.*@dev"
     },
     "repositories":[
         {
