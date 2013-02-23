@@ -15,7 +15,8 @@ class Vars
             echo "Sorry, but '$email' seems not to be an email";
         }
 */
-        $this->vars = $_REQUEST;
+        //1
+        $this->vars = $_REQUEST; //1
     }
 
     public function __set($name, $value)
