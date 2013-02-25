@@ -4,23 +4,29 @@ use Psr\Log\LoggerInterface;
 
 class Logger
 {
-    private $logger;
-    /**
-     * @param LoggerInterface $Logger PSR-3 logger interface
-     */
-    public function __construct(LoggerInterface $logger = null)
+    protected static $logger;
+
+    public static function init(LoggerInterface $logger = null)
     {
-        /** @type int This is a counter. */
-        $this->logger = $logger;
+        self::$logger = $logger;
     }
 
 
-    public function doSomething()
+    public static function doSomething()
     {
-        if ($this->logger) {
-            $this->logger->info('Doing work');
+        if (self::$logger) {
+            self::$logger->info('Doing work');
         }
-
-        // do something useful
     }
+
+    /*
+    const EMERGENCY = 'emergency';
+    const ALERT = 'alert';
+    const CRITICAL = 'critical';
+    const ERROR = 'error';
+    const WARNING = 'warning';
+    const NOTICE = 'notice';
+    const INFO = 'info';
+    const DEBUG = 'debug';
+     */
 }

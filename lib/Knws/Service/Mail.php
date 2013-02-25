@@ -18,7 +18,7 @@ class Mail
     public static function newTransport($host = 'localhost', $port = 26, $user = null, $password = null)
     {
         try {
-            self::$transport = \Swift_SmtpTransport::newInstance($host, $port);
+            self::$transport = Swift_SmtpTransport::newInstance($host, $port);
         }
         catch (\Swift_TransportException $e){
             self::$failed = $e->getMessage();
@@ -39,7 +39,7 @@ class Mail
      */
     protected static function newMessage()
     {
-        self::$message = \Swift_Message::newInstance();
+        self::$message = Swift_Message::newInstance();
     }
 
     /**
@@ -78,7 +78,7 @@ class Mail
      */
     protected static function attach($file)
     {
-        self::$message->attach(\Swift_Attachment::fromPath($file));
+        self::$message->attach(Swift_Attachment::fromPath($file));
     }
 
     /**
@@ -93,13 +93,13 @@ class Mail
         }
 
         if(self::$failed == null) {
-            self::$mailer = \Swift_Mailer::newInstance(self::$transport);
+            self::$mailer = Swift_Mailer::newInstance(self::$transport);
         }
 
         try {
             self::$mailer->send(self::$message);
         }
-        catch (\Swift_TransportException $e){
+        catch (Swift_TransportException $e){
             self::$failed = $e->getMessage();
         }
     }
