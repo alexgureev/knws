@@ -53,7 +53,6 @@ class Mail
     public static function mail($to, $from = null, $subject = null, $body = null, $attach = null, $send = false)
     {
         self::newMessage();
-        var_dump(self::$transport);
         if(is_array($to)) {
             extract($to, EXTR_OVERWRITE);
         }
