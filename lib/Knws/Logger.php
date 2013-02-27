@@ -23,7 +23,7 @@ class Logger
      * @return void
      * @throws \Exception
      */
-    public static function init(LoggerInterface $logger = null, int $logLevel = 300)
+    public static function init(LoggerInterface $logger, int $logLevel = 300)
     {
         self::$logger = $logger;
         self::$logLevel = $logLevel;
