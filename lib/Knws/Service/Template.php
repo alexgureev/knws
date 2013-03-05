@@ -6,19 +6,21 @@
  */
 namespace Knws\Service;
 
-class Template
+class Template extends \Knws\Service
 {
-    protected static $templateManager;
+    protected static $instance;
+    protected static $class;
 
     /**
      * init description
-     * @see http://knws.ru/docs/Service/Template/init Documentation of Knws\Service\Template->init().
-     * @return void
+     * @see http://knws.ru/docs/Service/Template/init Documentation of Knws\Service/Template->init().
+     * @return array $result
      */
     public static function init()
     {
-        $engine = '\Knws\Module\\' . \Knws\Instance::$config['config']['Template']['engine'];
-        self::$templateManager = $engine::init(\Knws\Instance::$config['config']['Template']);
+        self::$class = self::getClassName(__CLASS__);
+        $engine = '\Knws\Module\\' . \Knws\Instance::$config['config'][self::$class]['engine'];
+        self::$instance = new $engine();
     }
 
     /**
@@ -28,6 +30,6 @@ class Template
      */
     public static function render($template, $content)
     {
-        return self::$templateManager->render($template, $content);
+        return self::$instance->render($template, $content);
     }
 }

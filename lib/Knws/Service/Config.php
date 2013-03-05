@@ -7,9 +7,10 @@
 
 namespace Knws\Service;
 
-use Symfony\Component\Yaml\Parser;
+use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Dumper;
+use Symfony\Component\Yaml\Exception\DumpException;
 
 class Config
 {
@@ -20,10 +21,8 @@ class Config
      */
     public static function loadConfig()
     {
-        $yaml = new Parser();
-
         try {
-            \Knws\Instance::$config = $yaml->parse(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/../application/configs/application.yml'));
+            \Knws\Instance::$config = Yaml::parse($_SERVER['DOCUMENT_ROOT'] . '/../application/configs/application.yml');
         } catch (ParseException $e) {
             printf("Unable to parse the YAML string: %s", $e->getMessage());
         }
@@ -41,7 +40,7 @@ class Config
         $yaml = $dumper->dump($array);
         try {
             file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/../application/configs/application.yml', $yaml);
-        } catch (\Exception $e) {
+        } catch (DumpException $e) {
             printf("Unable to write file: %s", $e->getMessage());
             return false;
         }

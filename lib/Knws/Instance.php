@@ -24,8 +24,9 @@ class Instance
     {
         \Knws\Service\Config::loadConfig();
         self::initLogger();
-        self::initTranslation('ru_RU');
+        //self::initTranslation('ru_RU');
         self::initTemplate();
+        self::initDB();
     }
 
     /**
@@ -70,6 +71,16 @@ class Instance
     public static function initTemplate()
     {
         \Knws\Service\Template::init();
+    }
+
+    /**
+     * initDB description
+     * @see http://knws.ru/docs/Instance/initDB Documentation of Knws\Instance->initDB().
+     * @return void
+     */
+    public static function initDB()
+    {
+        \Knws\Service\DB::init();
     }
 
     /**

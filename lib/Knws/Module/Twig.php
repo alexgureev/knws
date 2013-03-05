@@ -6,16 +6,30 @@
  */
 namespace Knws\Module;
 
-class Twig extends Module
+class Twig extends \Knws\Module
 {
     /**
      * init description
-     * @see http://knws.ru/docs/Module/init Documentation of Knws\Module->init().
-     * @return obj $objs
+     * @see http://knws.ru/docs/Module/load Documentation of Knws\Module\Twig->load().
+     * @return obj $instance
      */
-    public static function init($config)
+    public function __construct()
     {
         $loader = new \Twig_Loader_Filesystem($_SERVER['DOCUMENT_ROOT'] . '/../application/views/');
-        return new \Twig_Environment($loader, array('cache' => $_SERVER['DOCUMENT_ROOT'] .'/../data/cache/'));
+        $this->instance = new \Twig_Environment($loader, array('cache' => $_SERVER['DOCUMENT_ROOT'] .'/../data/cache/'));
+        return $this;
     }
+
+    /**
+     * Render html file using twig template an content array
+     * @see http://knws.ru/docs/Module/Twig/render Documentation of Knws\Module/Twig->render().
+     * @param string $template Template filename
+     * @param array $content Content array
+     * @return string $html
+     */
+    public function render($template, $content)
+    {
+        return $this->instance->render($template, $content);;
+    }
+
 }
