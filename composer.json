@@ -38,5 +38,3 @@
         "post-update-cmd": ["php codecept.phar run"]
     }
 }
-
-
