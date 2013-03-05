@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 class Logger
 {
     /** @param \Psr\Log\LoggerInterface $logger logger static instance */
-    protected static $logger = null;
+    protected static $logger;
     /** @param int $logLevel logging level */
     protected static $logLevel = 300;
     /** @param array $logLevels defined logging levels */
@@ -23,7 +23,7 @@ class Logger
      * @return void
      * @throws \Exception
      */
-    public static function init(LoggerInterface $logger, int $logLevel = 300)
+    public static function init(LoggerInterface $logger = null, $logLevel = 300)
     {
         self::$logger = $logger;
         self::$logLevel = $logLevel;
@@ -146,4 +146,16 @@ class Logger
             self::$logger->debug($message, $context);
         }
     }
+
+    /**
+     * setLogLevel description
+     * @see http://knws.ru/docs/Service/setLogLevel Documentation of Knws\Service->setLogLevel().
+     * @param int $level
+     * @return void
+     */
+    public static function setLogLevel($level)
+    {
+        self::$logLevel = $level;
+    }
+
 }

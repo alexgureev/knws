@@ -1,4 +1,8 @@
-<?php namespace Knws\Service;
+<?php
+/*
+ * Mailing service
+ */
+namespace Knws\Service;
 
 class Mail
 {
@@ -6,6 +10,13 @@ class Mail
     static protected $mailer = null;
     static protected $message = null;
     static public $failed = null;
+
+    //Knws\Service\Mail::newTransport('localhost', 25, 'user', 'pass');
+    //Knws\Service\Mail::mail('w3db@yandex.ru', 'admin@knws.ru', 'test', 'attach', '/var/www/knws/composer.json', false);
+    /*
+    $arr = array('to' => 'w3db@yandex.ru', 'from' => 'admin@knws.ru', 'subject' => 'test', 'body' => 'array', 'attach' => null, 'send' => false);
+    Knws\Service\Mail::mail($arr);
+    Knws\Service\Mail::send();*/
 
     /**
      * newTransport create new \Swift_SmtpTransport instance
@@ -72,7 +83,7 @@ class Mail
     }
 
     /**
-     * Attach file to email instance
+     * Attach file to message
      * @param string $file file path
      */
     protected static function attach($file)

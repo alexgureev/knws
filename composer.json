@@ -20,7 +20,8 @@
 	"twig/twig": "1.12.*@dev",
 	"swiftmailer/swiftmailer": "4.3.*@dev",
         "psr/log": "1.0.*@dev",
-        "monolog/monolog": "1.4.*@dev"
+        "monolog/monolog": "1.4.*@dev",
+        "symfony/translation": "2.3.*@dev"
     },
     "repositories":[
         {
