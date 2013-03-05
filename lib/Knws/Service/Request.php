@@ -4,10 +4,9 @@
  * @see http://knws.ru/docs/Service/Request Documentation of Knws\Service\Request.
  * @author Barif
  */
-
 namespace Knws\Service;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request as Req;
 
 class Request extends \Knws\Service
 {
@@ -21,7 +20,7 @@ class Request extends \Knws\Service
      */
     public static function init()
     {
-        self::$instance = Request::createFromGlobals();
+        self::$instance = Req::createFromGlobals();
     }
 
     /**

@@ -24,6 +24,8 @@ class Instance
     {
         \Knws\Service\Config::loadConfig();
         self::initLogger();
+        self::initRequest();
+        self::initResponce();
         //self::initTranslation('ru_RU');
         self::initTemplate();
         self::initDB();
@@ -84,6 +86,26 @@ class Instance
     }
 
     /**
+     * initRequest description
+     * @see http://knws.ru/docs/Instance/initRequest Documentation of Knws\Instance->initRequest().
+     * @return void
+     */
+    public static function initRequest()
+    {
+        \Knws\Service\Request::init();
+    }
+
+    /**
+     * initResponce description
+     * @see http://knws.ru/docs/Instance/initResponce Documentation of Knws\Instance->initResponce().
+     * @return void
+     */
+    public static function initResponce()
+    {
+        \Knws\Service\Response::init();
+    }
+
+    /**
      * run description
      * @see http://knws.ru/docs/Instance/run Documentation of Knws\Instance->run().
      */
@@ -91,7 +113,4 @@ class Instance
     {
         echo \Knws\Service\Template::render('body.twig', array());
     }
-
-
-
 }

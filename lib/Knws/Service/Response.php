@@ -6,9 +6,9 @@
  */
 namespace Knws\Service;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response as Resp;
 
-class Responce extends \Knws\Service
+class Response extends \Knws\Service
 {
     protected static $instance;
     protected static $class;
@@ -20,7 +20,7 @@ class Responce extends \Knws\Service
      */
     public static function init()
     {
-        self::$instance = new Response();
+        self::$instance = new Resp();
     }
 
     /**
