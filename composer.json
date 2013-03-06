@@ -41,5 +41,6 @@
     },
     "scripts": {
         "post-update-cmd": ["php codecept.phar run"]
-    }
+    },
+    "minimum-stability": "dev"
 }
