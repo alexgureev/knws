@@ -38,13 +38,7 @@ class Instance
      */
     public static function initLogger()
     {
-        $logger = new \Monolog\Logger("Mail");
-        $logger->pushHandler(new \Monolog\Handler\RotatingFileHandler($_SERVER['DOCUMENT_ROOT'] . "/../data/logs/monolog.log"));
-        try {
-            \Knws\Logger::init($logger, 100);
-        } catch (\Exception $e) {
-            die($e->getMessage());
-        }
+        \Knws\Service\Logger::init();
     }
 
     /**
