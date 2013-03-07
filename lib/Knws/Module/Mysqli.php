@@ -32,9 +32,9 @@ class Mysqli extends \Knws\Module
      */
     public function find($args)
     {
-        print_r($args);
+        $sql = 'SELECT * FROM ' . $args[0] . ' WHERE ' . $args[1][0] . ' = ' . $args[1][1];
 
-
+        echo $sql;
         /*$result = $this->connection->query($sql, MYSQLI_USE_RESULT);
 
         if ($result)
@@ -50,6 +50,7 @@ class Mysqli extends \Knws\Module
 
         return $user_arr;*/
     }
+
 
 
 }

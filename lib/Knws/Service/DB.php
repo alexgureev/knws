@@ -45,8 +45,7 @@ class DB extends \Knws\Service
      */
     public static function find()
     {
-        $args = func_get_args();
-        return self::$instance->find($args);
+        return self::$instance->find(func_get_args());
     }
 
 }
