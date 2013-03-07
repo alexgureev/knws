@@ -21,23 +21,22 @@ class DB extends \Knws\Service
         self::$class = self::getClassName(__CLASS__);
         $engine = '\Knws\Module\\' . \Knws\Instance::$config['config'][self::$class]['engine'];
         self::$instance = new $engine();
-        self::connect();
     }
 
     /**
-     * Connect to database server, using db module
-     * @see http://knws.ru/docs/Service/DB/connect Documentation of Knws\Service\DB->connect().
-     * @return void
+     * Magic method to set table from object call
+     * @param string $collection Table name
      */
-    protected static function connect()
+    public static function __callStatic($collection, $arguments)
     {
-        self::$instance->connect();
+        self::$instance->setCollection($collection);
+        // if sizeof == 0 return $instance else call find with args
+        return (sizeof($arguments) == 0) ? self::$instance : self::$instance->find($arguments);
     }
 
-    /**
+   /**
      * Search record(s) in database
      * @see http://knws.ru/docs/DB/find Documentation of Knws\DB->find().
-     * @param string $collection
      * @param array $query
      * @param array $limit
      * @param array $order

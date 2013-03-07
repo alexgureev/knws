@@ -34,7 +34,11 @@
 	"twig/twig": "1.12.*@dev",
 	"swiftmailer/swiftmailer": "4.3.*@dev",
         "psr/log": "1.0.*@dev",
-        "monolog/monolog": "1.4.*@dev"
+        "monolog/monolog": "1.4.*@dev",
+        "doctrine/dbal": "2.3.*@dev",
+        "doctrine/common": "2.4.*@dev",
+        "doctrine/orm": "2.4.*@dev"
+
     },
     "repositories":[
         {
@@ -46,9 +50,6 @@
         "psr-0" : {
                    "Knws" : "lib/"
         }
-    },
-    "scripts": {
-        "post-update-cmd": ["php codecept.phar run"]
     },
     "minimum-stability": "dev"
 }
