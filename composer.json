@@ -52,6 +52,6 @@
     },
     "minimum-stability": "dev",
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "application/bin"
     }
 }
