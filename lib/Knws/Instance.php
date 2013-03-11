@@ -23,12 +23,13 @@ class Instance
     public static function init()
     {
         \Knws\Service\Config::loadConfig();
-        self::initLogger();
+        //self::initLogger();
         self::initRequest();
         self::initResponce();
         //self::initTranslation('ru_RU');
         self::initTemplate();
         self::initDB();
+        self::initDoctrine();
     }
 
     /**
@@ -39,6 +40,16 @@ class Instance
     public static function initLogger()
     {
         \Knws\Service\Logger::init();
+    }
+
+    /**
+     * initLogger description
+     * @see http://knws.ru/docs/Instance/initLogger Documentation of Knws\Instance->initLogger().
+     * @return array $result
+     */
+    public static function initDoctrine()
+    {
+        \Knws\Service\Doctrine::init();
     }
 
     /**

@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityManager;
 
 class Doctrine extends \Knws\Service
 {
-    protected static $instance;
+    public static $instance;
     protected static $class;
 
     /**
