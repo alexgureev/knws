@@ -48,7 +48,7 @@ class Kernel
             $this->startTime = microtime(true);
         }
 
-        $this->init();
+        //$this->init();
     }
 
     public function init()

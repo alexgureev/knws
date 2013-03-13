@@ -9,16 +9,28 @@ namespace Knws;
 class Controller
 {
     /**
-     * run description
-     * @see http://knws.ru/docs/Controller/run Documentation of Knws\Controller->run().
-     * @return void
+     * action description
+     * @see http://knws.ru/docs/namespace/action Documentation of Knws\namespace->action().
+     * @param mixed $arg1
+     * @return array $result
      */
-    public static function run()
+    public function action($arg1)
     {
 
+        return $result;
     }
 
-    
+    /**
+     * render description
+     * @see http://knws.ru/docs/namespace/render Documentation of Knws\namespace->render().
+     * @param mixed $arg1
+     * @return array $result
+     */
+    public function render($arg1)
+    {
+
+        return $result;
+    }
 
 
 }
