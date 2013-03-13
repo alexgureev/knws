@@ -24,12 +24,7 @@ class Kernel
     protected $classes;
     protected $errorReportingLevel;
 
-    const VERSION         = '2.2.0';
-    const VERSION_ID      = '20100';
-    const MAJOR_VERSION   = '2';
-    const MINOR_VERSION   = '2';
-    const RELEASE_VERSION = '0';
-    const EXTRA_VERSION   = '';
+    const VERSION         = '0.0.2';
 
     /**
      * Constructor.
@@ -44,8 +39,8 @@ class Kernel
         $this->environment = $environment;
         $this->debug = (Boolean) $debug;
         $this->booted = false;
-        $this->rootDir = $this->getRootDir();
-        $this->name = $this->getName();
+        //$this->rootDir = $this->getRootDir();
+        //$this->name = $this->getName();
         $this->classes = array();
         $this->bundles = array();
 

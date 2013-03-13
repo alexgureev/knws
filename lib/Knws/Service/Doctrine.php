@@ -80,7 +80,12 @@ class Doctrine extends \Knws\Service
         $query = $em->createQuery(
             'SELECT p FROM AcmeStoreBundle:Product p WHERE p.price > :price ORDER BY p.price ASC'
         )->setParameter('price', '19.99');
-
+        /*
+            ->setParameters(array(
+                'price' => '19.99',
+                'name'  => 'Foo',
+            ))
+         */
         try {
             $product = $query->getSingleResult();
         } catch (\Doctrine\ORM\NoResultException $e) {
@@ -92,5 +97,19 @@ class Doctrine extends \Knws\Service
         return $result;
     }
 
+    function listRepository()
+    {
+        $bugs = $entityManager->getRepository('Bug')->getRecentBugs();
 
+        foreach($bugs AS $bug) {
+            echo $bug->getDescription()." - ".$bug->getCreated()->format('d.m.Y')."\n";
+            echo "    Reported by: ".$bug->getReporter()->getName()."\n";
+            echo "    Assigned to: ".$bug->getEngineer()->getName()."\n";
+            foreach($bug->getProducts() AS $product) {
+                echo "    Platform: ".$product->getName()."\n";
+            }
+            echo "\n";
+        }
+
+    }
 }

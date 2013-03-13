@@ -23,7 +23,7 @@ class Instance
     public static function init()
     {
         \Knws\Service\Config::loadConfig();
-        self::initLogger();
+        //self::initLogger();
         self::initRequest();
         self::initResponce();
         //self::initTranslation('ru_RU');
